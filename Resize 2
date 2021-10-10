@@ -1,0 +1,24 @@
+package Resize;
+
+import java.util.Set;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Resizable2 {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+System.setProperty("webdriver.chrome.driver", "C:\\browser drivers\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("http://strml.github.io/react-resizable/examples/1.html");
+		Actions act = new Actions(driver);
+WebElement resize = driver.findElement(By.xpath("(//span[@class='react-draggable react-resizable-handle'])[1]"));
+		Thread.sleep(3000);
+		act.moveToElement(resize).dragAndDropBy(resize, 200, 250).perform();
+
+	}
+}
